@@ -35,6 +35,7 @@ public class LoginPage {
         login.setValue(info.getLogin());
         pass.setValue(info.getPassword());
         buttonEnter.click();
+        errorNotificationVisible();
         login.doubleClick().sendKeys(Keys.BACK_SPACE);
         pass.doubleClick().sendKeys(Keys.BACK_SPACE);
     }

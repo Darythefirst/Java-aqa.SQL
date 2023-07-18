@@ -57,11 +57,8 @@ class LoginTest {
         var loginPage = new LoginPage();
         var registratedUser = DataHelper.getWrongAuthInfo();
         loginPage.notValidPass(registratedUser);
-        loginPage.errorNotificationVisible();
         loginPage.notValidPass(registratedUser);
-        loginPage.errorNotificationVisible();
         loginPage.notValidPass(registratedUser);
-        loginPage.errorNotificationVisible();
         loginPage.notValidPass(registratedUser);
         loginPage.findErrorMessage("Пароль введен неверно более 3-х раз!Система заблокирована!");
     }
