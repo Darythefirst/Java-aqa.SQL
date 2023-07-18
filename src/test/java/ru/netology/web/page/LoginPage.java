@@ -6,8 +6,7 @@ import ru.netology.web.data.DataHelper;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
@@ -32,11 +31,15 @@ public class LoginPage {
     }
 
     public void notValidPass(DataHelper.AuthInfo info) {
-        login.setValue(info.getLogin());
-        pass.setValue(info.getPassword());
-        buttonEnter.click();
-        errorNotificationVisible();
-        login.doubleClick().sendKeys(Keys.BACK_SPACE);
-        pass.doubleClick().sendKeys(Keys.BACK_SPACE);
+        for (int i = 0; i <= 3; i++) {
+            login.setValue(info.getLogin());
+            pass.setValue(info.getPassword());
+            buttonEnter.click();
+            errorNotificationVisible();
+            if (i <= 2) {
+                login.doubleClick().sendKeys(Keys.BACK_SPACE);
+                pass.doubleClick().sendKeys(Keys.BACK_SPACE);
+            }
+        }
     }
 }
